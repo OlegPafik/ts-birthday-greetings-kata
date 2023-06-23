@@ -3,13 +3,21 @@ import SMTPTransport from 'nodemailer/lib/smtp-transport'
 import nodemailer from 'nodemailer'
 
 export class MailService {
-    async sendMessage(smtpHost: string, smtpPort: number, sender: string,
-        subject: string, body: string, recipient: string) {
+    private readonly _smtpHost: string
+    private readonly _smtpPort: number
+    private readonly _senderMail: string
 
+    constructor(smtpHost: string, smtpPort: number, senderMail: string) {
+        this._smtpHost = smtpHost
+        this._smtpPort = smtpPort
+        this._senderMail = senderMail
+    }
+
+    async sendMessage(subject: string, body: string, recipient: string) {
         const message = {
-            host: smtpHost,
-            port: smtpPort,
-            from: sender,
+            host: this._smtpHost,
+            port: this._smtpPort,
+            from: this._senderMail,
             to: [recipient],
             subject,
             text: body

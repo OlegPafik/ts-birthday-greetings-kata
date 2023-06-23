@@ -6,7 +6,7 @@ import { MailService } from './MailService'
 export class BirthdayService {
     sendGreetings(fileName: string, ourDate: OurDate, smtpHost: string, smtpPort: number) {
         const dbService = new DbService()
-        const mailService = new MailService()
+        const mailService = new MailService(smtpHost, smtpPort, 'sender@here.com')
         const employees = dbService.get(fileName);
 
         // print all lines
@@ -18,7 +18,7 @@ export class BirthdayService {
                 const body = 'Happy Birthday, dear %NAME%!'.replace('%NAME%',
                     employee.getFirstName())
                 const subject = 'Happy Birthday!'
-                mailService.sendMessage(smtpHost, smtpPort, 'sender@here.com', subject, body, recipient)
+                mailService.sendMessage(subject, body, recipient)
             }
         })
     }
