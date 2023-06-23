@@ -5,9 +5,9 @@ import { MailService } from './MailService'
 
 export class BirthdayService {
     sendGreetings(fileName: string, ourDate: OurDate, smtpHost: string, smtpPort: number) {
-        const dbService = new DbService()
+        const dbService = new DbService(fileName)
         const mailService = new MailService(smtpHost, smtpPort, 'sender@here.com')
-        const employees = dbService.get(fileName);
+        const employees = dbService.getAll();
 
         // print all lines
         employees.forEach((line) => {
