@@ -1,21 +1,17 @@
-import fs from 'fs'
-import path from 'path'
 import nodemailer from 'nodemailer'
 import { Employee } from './Employee'
 import { OurDate } from './OurDate'
 import Mail from 'nodemailer/lib/mailer'
 import SMTPTransport from 'nodemailer/lib/smtp-transport'
+import { DbService } from './DbService'
 
 export class BirthdayService {
     sendGreetings(fileName: string, ourDate: OurDate, smtpHost: string, smtpPort: number) {
-        const data = fs.readFileSync(path.resolve(__dirname, `../resources/${fileName}`), 'UTF-8')
-
-        // split the contents by new line
-        const lines = data.split(/\r?\n/)
-        lines.shift()
+        const dbService = new DbService()
+        const employees = dbService.get(fileName);
 
         // print all lines
-        lines.forEach((line) => {
+        employees.forEach((line) => {
             const employeeData = line.split(', ')
             const employee = new Employee(employeeData[1], employeeData[0], employeeData[2], employeeData[3])
             if (employee.isBirthday(ourDate)) {
