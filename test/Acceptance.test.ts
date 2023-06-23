@@ -1,18 +1,22 @@
 import { OurDate } from '../src/OurDate'
 import { BirthdayService } from '../src/BirthdayService'
+import { DbService } from '../src/DbService'
+import { MailService } from '../src/MailService'
 import { messagesSent, startMailhog, stopMailHog } from './mailhog'
 import flushPromises from 'flush-promises'
 
 describe('Acceptance', () => {
-
+    const fileName = 'employee_data.txt'
     const SMTP_PORT = 1025
     const SMTP_URL = '127.0.0.1'
+    const dbService = new DbService(fileName)
+    const mailService = new MailService(SMTP_URL, SMTP_PORT, 'sender@here.com')
     let service: BirthdayService
 
     beforeEach(() => {
         startMailhog()
 
-        service = new BirthdayService()
+        service = new BirthdayService(dbService, mailService)
     })
 
     afterEach(() => {
@@ -20,7 +24,7 @@ describe('Acceptance', () => {
     })
 
     it('base scenario', async () => {
-        service.sendGreetings('employee_data.txt', new OurDate('2008/10/08'), SMTP_URL, SMTP_PORT)
+        service.sendGreetings(new OurDate('2008/10/08'))
         await flushPromises()
 
         const messages = await messagesSent()
@@ -34,7 +38,7 @@ describe('Acceptance', () => {
     })
 
     it('will not send emails when nobodys birthday', async () => {
-        service.sendGreetings('employee_data.txt', new OurDate('2008/01/01'), SMTP_URL, SMTP_PORT)
+        service.sendGreetings(new OurDate('2008/01/01'))
         await flushPromises()
 
         const messages = await messagesSent()

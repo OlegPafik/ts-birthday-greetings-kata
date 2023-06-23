@@ -1,8 +1,9 @@
 import fs from 'fs'
 import path from 'path'
 import { Employee } from './Employee'
+import { DbServiceInterface } from './_interfaces/DbServiceInterface'
 
-export class DbService {
+export class DbService implements DbServiceInterface {
     private readonly _fileName: string
 
     constructor(fileName: string) {

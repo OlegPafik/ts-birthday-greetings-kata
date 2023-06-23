@@ -1,8 +1,8 @@
-import Mail from 'nodemailer/lib/mailer'
-import SMTPTransport from 'nodemailer/lib/smtp-transport'
+import { MailServiceInterface } from './_interfaces/MailServiceInterface'
+import { Message } from './_interfaces/Message'
 import nodemailer from 'nodemailer'
 
-export class MailService {
+export class MailService implements MailServiceInterface {
     private readonly _smtpHost: string
     private readonly _smtpPort: number
     private readonly _senderMail: string
@@ -26,13 +26,10 @@ export class MailService {
         this.deliveryMessage(message)
     }
 
-    // made protected for testing :-(
-    protected async deliveryMessage({host, port, ...msg}: Message) {
+    // made protected for testing :-(, but public for IMailService don't allow protected
+    async deliveryMessage({host, port, ...msg}: Message) {
         const transport = nodemailer.createTransport({host, port})
 
         await transport.sendMail(msg)
     }
-}
-
-export interface Message extends SMTPTransport.Options, Mail.Options {
 }
