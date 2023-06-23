@@ -15,6 +15,7 @@ export class BirthdayService {
     sendGreetings(ourDate: OurDate) {
         const employees = this._dbService.getAllEmployees();
 
+        // Aquí un filter de employees a otro array de celebratingTodayEmployees, y mejor dentro del dbService.
         employees.forEach((employee) => {
             if (employee.isBirthday(ourDate)) {
                 const recipient = employee.getEmail()
@@ -27,3 +28,4 @@ export class BirthdayService {
     }
 }
 
+// CreateEmail with Email (subject, body, recipient). Introduce to mailService.
