@@ -1,7 +1,7 @@
 
-import { OurDate } from './Entities/OurDate'
-import { EmployeesRepository } from './_interfaces/EmployeesRepository'
-import { MailManager } from './_interfaces/MailManager'
+import { OurDate } from '../domain/entities/OurDate'
+import { EmployeesRepository } from '../domain/EmployeesRepository'
+import { MailManager } from '../domain/MailManager'
 
 export class BirthdayService {
     private readonly _employeesRepository: EmployeesRepository

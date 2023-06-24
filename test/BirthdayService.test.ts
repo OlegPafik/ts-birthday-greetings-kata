@@ -1,6 +1,6 @@
 import { MockEmployeesRepository } from './_fixtures/MockEmployeesRepository'
-import { OurDate } from '../src/Entities/OurDate'
-import { BirthdayService } from '../src/BirthdayService'
+import { OurDate } from '../src/domain/entities/OurDate'
+import { BirthdayService } from '../src/services/BirthdayService'
 import { MockMailManager } from './_fixtures/MockMailManager'
 
 describe('BirthdayService', () => {

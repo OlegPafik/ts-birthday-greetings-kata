@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
-import { Employee } from './Entities/Employee'
-import { EmployeesRepository } from './_interfaces/EmployeesRepository'
+import { Employee } from '../domain/entities/Employee'
+import { EmployeesRepository } from '../domain/EmployeesRepository'
 
 export class FilesyncEmployeesRepository implements EmployeesRepository {
     private readonly _fileName: string
@@ -11,8 +11,9 @@ export class FilesyncEmployeesRepository implements EmployeesRepository {
     }
 
     getAllEmployees(): Employee[] {
-        const data = fs.readFileSync(path.resolve(__dirname, `../resources/${this._fileName}`), 'UTF-8')
+        const data = fs.readFileSync(path.resolve(__dirname, `../../resources/${this._fileName}`), 'UTF-8')
 
+        // Esto a un mapper
         // split the contents by new line
         const lines = data.split(/\r?\n/)
         lines.shift()

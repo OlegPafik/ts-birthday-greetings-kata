@@ -1,7 +1,7 @@
-import { OurDate } from '../src/Entities/OurDate'
-import { BirthdayService } from '../src/BirthdayService'
-import { FilesyncEmployeesRepository } from '../src/FilesyncEmployeesRepository'
-import { NodemailerMailManager } from '../src/NodemailerMailManager'
+import { OurDate } from '../src/domain/entities/OurDate'
+import { BirthdayService } from '../src/services/BirthdayService'
+import { FilesyncEmployeesRepository } from '../src/infrastructure/FilesyncEmployeesRepository'
+import { NodemailerMailManager } from '../src/infrastructure/NodemailerMailManager'
 import { messagesSent, startMailhog, stopMailHog } from './mailhog'
 import flushPromises from 'flush-promises'
 

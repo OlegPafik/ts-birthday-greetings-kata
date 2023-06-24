@@ -1,7 +1,7 @@
-import { Employee } from './Entities/Employee'
-import { Email } from './Entities/Email'
-import { MailManager } from './_interfaces/MailManager'
-import { Message } from './Entities/Message'
+import { Employee } from '../domain/entities/Employee'
+import { Email } from '../domain/entities/Email'
+import { MailManager } from '../domain/MailManager'
+import { Message } from '../domain/entities/Message'
 import nodemailer from 'nodemailer'
 
 export class NodemailerMailManager implements MailManager {

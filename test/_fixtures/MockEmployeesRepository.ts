@@ -1,5 +1,5 @@
-import { Employee } from '../../src/Entities/Employee'
-import { EmployeesRepository } from '../../src/_interfaces/EmployeesRepository'
+import { Employee } from '../../src/domain/entities/Employee'
+import { EmployeesRepository } from '../../src/domain/EmployeesRepository'
 
 export class MockEmployeesRepository implements EmployeesRepository {
 

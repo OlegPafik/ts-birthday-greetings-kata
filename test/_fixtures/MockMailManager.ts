@@ -1,7 +1,7 @@
-import { Email } from 'src/Entities/Email'
-import { MailManager } from '../../src/_interfaces/MailManager'
-import { Message } from '../../src/Entities/Message'
-import { Employee } from 'src/Entities/Employee'
+import { Email } from 'src/domain/entities/Email'
+import { MailManager } from '../../src/domain/MailManager'
+import { Message } from '../../src/domain/entities/Message'
+import { Employee } from 'src/domain/entities/Employee'
 
 export class MockMailManager implements MailManager {
     deliveredMessages: number = 0

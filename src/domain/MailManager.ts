@@ -1,6 +1,6 @@
-import { Email } from 'src/Entities/Email'
-import { Message } from '../Entities/Message'
-import { Employee } from 'src/Entities/Employee'
+import { Email } from 'src/domain/entities/Email'
+import { Message } from './entities/Message'
+import { Employee } from 'src/domain/entities/Employee'
 
 export interface MailManager {
     createEmail: (employee: Employee) => Email
