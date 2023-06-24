@@ -1,9 +1,9 @@
 import { Email } from 'src/Entities/Email'
-import { MailServiceInterface } from '../../src/_interfaces/MailServiceInterface'
+import { MailManager } from '../../src/_interfaces/MailManager'
 import { Message } from '../../src/Entities/Message'
 import { Employee } from 'src/Entities/Employee'
 
-export class MailServiceMock implements MailServiceInterface {
+export class MockMailManager implements MailManager {
     timesCalled: number = 0
 
     createEmail(employee: Employee): Email {

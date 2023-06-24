@@ -1,7 +1,7 @@
 import { OurDate } from '../src/Entities/OurDate'
 import { BirthdayService } from '../src/BirthdayService'
 import { FilesyncEmployeesRepository } from '../src/FilesyncEmployeesRepository'
-import { MailService } from '../src/MailService'
+import { NodemailerMailManager } from '../src/NodemailerMailManager'
 import { messagesSent, startMailhog, stopMailHog } from './mailhog'
 import flushPromises from 'flush-promises'
 
@@ -10,7 +10,7 @@ describe('Acceptance', () => {
     const SMTP_PORT = 1025
     const SMTP_URL = '127.0.0.1'
     const employeesRepository = new FilesyncEmployeesRepository(fileName)
-    const mailService = new MailService(SMTP_URL, SMTP_PORT, 'sender@here.com')
+    const mailService = new NodemailerMailManager(SMTP_URL, SMTP_PORT, 'sender@here.com')
     let service: BirthdayService
 
     beforeEach(() => {

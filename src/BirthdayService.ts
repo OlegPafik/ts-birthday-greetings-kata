@@ -1,15 +1,15 @@
 
 import { OurDate } from './Entities/OurDate'
 import { EmployeesRepository } from './_interfaces/EmployeesRepository'
-import { MailServiceInterface } from './_interfaces/MailServiceInterface'
+import { MailManager } from './_interfaces/MailManager'
 
 export class BirthdayService {
     private readonly _employeesRepository: EmployeesRepository
-    private readonly _mailService: MailServiceInterface
+    private readonly _mailManager: MailManager
 
-    constructor(employeesRepository: EmployeesRepository, mailService: MailServiceInterface) {
+    constructor(employeesRepository: EmployeesRepository, mailManager: MailManager) {
         this._employeesRepository = employeesRepository
-        this._mailService = mailService
+        this._mailManager = mailManager
     }
 
     sendGreetings(ourDate: OurDate) {
@@ -17,8 +17,8 @@ export class BirthdayService {
 
         employees.forEach((employee) => {
             if (employee.isBirthday(ourDate)) {
-                const email = this._mailService.createEmail(employee)
-                this._mailService.sendMessage(email)
+                const email = this._mailManager.createEmail(employee)
+                this._mailManager.sendMessage(email)
             }
         })
     }

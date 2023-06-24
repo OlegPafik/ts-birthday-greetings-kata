@@ -1,10 +1,10 @@
 import { Employee } from './Entities/Employee'
 import { Email } from './Entities/Email'
-import { MailServiceInterface } from './_interfaces/MailServiceInterface'
+import { MailManager } from './_interfaces/MailManager'
 import { Message } from './Entities/Message'
 import nodemailer from 'nodemailer'
 
-export class MailService implements MailServiceInterface {
+export class NodemailerMailManager implements MailManager {
     private readonly _smtpHost: string
     private readonly _smtpPort: number
     private readonly _senderMail: string

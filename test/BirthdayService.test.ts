@@ -1,16 +1,16 @@
 import { MockEmployeesRepository } from './_fixtures/MockEmployeesRepository'
 import { OurDate } from '../src/Entities/OurDate'
 import { BirthdayService } from '../src/BirthdayService'
-import { MailServiceMock } from './_fixtures/MailServiceMock'
+import { MockMailManager } from './_fixtures/MockMailManager'
 
 describe('BirthdayService', () => {
     let dbService: MockEmployeesRepository
-    let mailService: MailServiceMock
+    let mailService: MockMailManager
     let birthDayService: BirthdayService
 
     beforeEach(() => {
         dbService = new MockEmployeesRepository()
-        mailService = new MailServiceMock()
+        mailService = new MockMailManager()
         birthDayService = new BirthdayService(dbService, mailService)
     })
 
