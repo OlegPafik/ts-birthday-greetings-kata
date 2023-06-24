@@ -4,7 +4,8 @@ import { Message } from '../../src/Entities/Message'
 import { Employee } from 'src/Entities/Employee'
 
 export class MockMailManager implements MailManager {
-    timesCalled: number = 0
+    deliveredMessages: number = 0
+    employeesContacted: Employee[] = []
 
     createEmail(employee: Employee): Email {
         const email: Email = {
@@ -28,6 +29,6 @@ export class MockMailManager implements MailManager {
 
     // made protected for testing :-(, but public for IMailService don't allow protected
     async deliveryMessage({host, port, ...msg}: Message) {
-        this.timesCalled = this.timesCalled + 1;
+        this.deliveredMessages = this.deliveredMessages + 1;
     }
 }

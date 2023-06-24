@@ -16,11 +16,11 @@ describe('BirthdayService', () => {
 
     it('base scenario', async () => {
         birthdayService.sendGreetings(new OurDate('2008/10/08'))
-        expect(mailManager.timesCalled).toEqual(1)
+        expect(mailManager.deliveredMessages).toEqual(1)
     })
 
     it('will not send emails when nobodys birthday', async () => {
-        birthdayService.sendGreetings(new OurDate('2008/01/01'))
-        expect(mailManager.timesCalled).toEqual(1)
+        birthdayService.sendGreetings(new OurDate('1950/09/05'))
+        expect(mailManager.deliveredMessages).toEqual(0)
     })
 })
