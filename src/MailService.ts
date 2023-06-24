@@ -1,3 +1,4 @@
+import { Email } from './Entities/Email'
 import { MailServiceInterface } from './_interfaces/MailServiceInterface'
 import { Message } from './_interfaces/Message'
 import nodemailer from 'nodemailer'
@@ -13,14 +14,14 @@ export class MailService implements MailServiceInterface {
         this._senderMail = senderMail
     }
 
-    async sendMessage(subject: string, body: string, recipient: string) {
+    async sendMessage(email: Email) {
         const message = {
             host: this._smtpHost,
             port: this._smtpPort,
             from: this._senderMail,
-            to: [recipient],
-            subject,
-            text: body
+            to: [email.recipient],
+            subject: email.subject,
+            text: email.body
         }
 
         this.deliveryMessage(message)

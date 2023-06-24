@@ -1,14 +1,15 @@
+import { Email } from 'src/Entities/Email'
 import { MailServiceInterface } from '../../src/_interfaces/MailServiceInterface'
 import { Message } from '../../src/_interfaces/Message'
 
 export class MailServiceMock implements MailServiceInterface {
     timesCalled: number = 0
 
-    async sendMessage(subject: string, body: string, recipient: string) {
+    async sendMessage(email: Email) {
         const message = {
-            to: [recipient],
-            subject,
-            text: body
+            to: [email.recipient],
+            subject: email.subject,
+            text: email.body
         }
 
         this.deliveryMessage(message)
