@@ -1,5 +1,5 @@
 import { DbServiceMock } from './_fixtures/DbServiceMock'
-import { OurDate } from '../src/OurDate'
+import { OurDate } from '../src/Entities/OurDate'
 import { BirthdayService } from '../src/BirthdayService'
 import { MailServiceMock } from './_fixtures/MailServiceMock'
 

@@ -1,4 +1,4 @@
-import { OurDate } from '../src/OurDate'
+import { OurDate } from '../src/Entities/OurDate'
 
 describe('OurDate', () => {
 

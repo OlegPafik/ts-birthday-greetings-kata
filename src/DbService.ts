@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { Employee } from './Employee'
+import { Employee } from './Entities/Employee'
 import { DbServiceInterface } from './_interfaces/DbServiceInterface'
 
 export class DbService implements DbServiceInterface {

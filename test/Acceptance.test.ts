@@ -1,4 +1,4 @@
-import { OurDate } from '../src/OurDate'
+import { OurDate } from '../src/Entities/OurDate'
 import { BirthdayService } from '../src/BirthdayService'
 import { DbService } from '../src/DbService'
 import { MailService } from '../src/MailService'

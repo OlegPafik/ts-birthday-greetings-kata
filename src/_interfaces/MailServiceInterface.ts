@@ -1,6 +1,6 @@
 import { Email } from 'src/Entities/Email'
-import { Message } from './Message'
-import { Employee } from 'src/Employee'
+import { Message } from '../Entities/Message'
+import { Employee } from 'src/Entities/Employee'
 
 export interface MailServiceInterface {
     createEmail: (employee: Employee) => Email

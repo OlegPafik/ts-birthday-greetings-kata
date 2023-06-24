@@ -1,7 +1,7 @@
 import { Email } from 'src/Entities/Email'
 import { MailServiceInterface } from '../../src/_interfaces/MailServiceInterface'
-import { Message } from '../../src/_interfaces/Message'
-import { Employee } from 'src/Employee'
+import { Message } from '../../src/Entities/Message'
+import { Employee } from 'src/Entities/Employee'
 
 export class MailServiceMock implements MailServiceInterface {
     timesCalled: number = 0

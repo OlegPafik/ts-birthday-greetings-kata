@@ -1,7 +1,7 @@
-import { Employee } from './Employee'
+import { Employee } from './Entities/Employee'
 import { Email } from './Entities/Email'
 import { MailServiceInterface } from './_interfaces/MailServiceInterface'
-import { Message } from './_interfaces/Message'
+import { Message } from './Entities/Message'
 import nodemailer from 'nodemailer'
 
 export class MailService implements MailServiceInterface {

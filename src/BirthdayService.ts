@@ -1,5 +1,5 @@
 
-import { OurDate } from './OurDate'
+import { OurDate } from './Entities/OurDate'
 import { DbServiceInterface } from './_interfaces/DbServiceInterface'
 import { MailServiceInterface } from './_interfaces/MailServiceInterface'
 

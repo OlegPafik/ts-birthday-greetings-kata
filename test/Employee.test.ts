@@ -1,5 +1,5 @@
-import { OurDate } from '../src/OurDate'
-import { Employee } from '../src/Employee'
+import { OurDate } from '../src/Entities/OurDate'
+import { Employee } from '../src/Entities/Employee'
 
 describe('Employee', () => {
 

@@ -1,4 +1,4 @@
-import { Employee } from '../../src/Employee'
+import { Employee } from '../../src/Entities/Employee'
 import { DbServiceInterface } from '../../src/_interfaces/DbServiceInterface'
 
 export class DbServiceMock implements DbServiceInterface {
