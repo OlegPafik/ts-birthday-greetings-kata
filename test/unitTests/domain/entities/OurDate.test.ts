@@ -1,4 +1,4 @@
-import { OurDate } from '../src/domain/entities/OurDate'
+import { OurDate } from '../../../../src/domain/entities/OurDate'
 
 describe('OurDate', () => {
 
