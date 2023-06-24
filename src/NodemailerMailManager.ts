@@ -5,13 +5,11 @@ import { Message } from './Entities/Message'
 import nodemailer from 'nodemailer'
 
 export class NodemailerMailManager implements MailManager {
-    private readonly _smtpHost: string
-    private readonly _smtpPort: number
+    private readonly _smtpHost: string = '127.0.0.1'
+    private readonly _smtpPort: number = 1025
     private readonly _senderMail: string
 
-    constructor(smtpHost: string, smtpPort: number, senderMail: string) {
-        this._smtpHost = smtpHost
-        this._smtpPort = smtpPort
+    constructor(senderMail: string) {
         this._senderMail = senderMail
     }
 

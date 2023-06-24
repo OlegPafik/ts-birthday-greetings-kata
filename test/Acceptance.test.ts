@@ -7,10 +7,8 @@ import flushPromises from 'flush-promises'
 
 describe('Acceptance', () => {
     const fileName = 'employee_data.txt'
-    const SMTP_PORT = 1025
-    const SMTP_URL = '127.0.0.1'
     const employeesRepository = new FilesyncEmployeesRepository(fileName)
-    const mailService = new NodemailerMailManager(SMTP_URL, SMTP_PORT, 'sender@here.com')
+    const mailService = new NodemailerMailManager('sender@here.com')
     let service: BirthdayService
 
     beforeEach(() => {
