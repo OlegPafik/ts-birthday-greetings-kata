@@ -1,3 +1,4 @@
+import { Employee } from './Employee'
 import { Email } from './Entities/Email'
 import { MailServiceInterface } from './_interfaces/MailServiceInterface'
 import { Message } from './_interfaces/Message'
@@ -12,6 +13,16 @@ export class MailService implements MailServiceInterface {
         this._smtpHost = smtpHost
         this._smtpPort = smtpPort
         this._senderMail = senderMail
+    }
+
+    createEmail(employee: Employee): Email {
+        const email: Email = {
+            subject: 'Happy Birthday!',
+            body: 'Happy Birthday, dear %NAME%!'.replace('%NAME%', employee.getFirstName()),
+            recipient: employee.getEmail()
+        }
+
+        return email
     }
 
     async sendMessage(email: Email) {
