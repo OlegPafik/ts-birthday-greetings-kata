@@ -1,5 +1,5 @@
 import { Employee } from '../Entities/Employee'
 
-export interface DbServiceInterface {
+export interface EmployeesRepository {
     getAllEmployees: () => Employee[]
 }

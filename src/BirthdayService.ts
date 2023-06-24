@@ -1,19 +1,19 @@
 
 import { OurDate } from './Entities/OurDate'
-import { DbServiceInterface } from './_interfaces/DbServiceInterface'
+import { EmployeesRepository } from './_interfaces/EmployeesRepository'
 import { MailServiceInterface } from './_interfaces/MailServiceInterface'
 
 export class BirthdayService {
-    private readonly _dbService: DbServiceInterface
+    private readonly _employeesRepository: EmployeesRepository
     private readonly _mailService: MailServiceInterface
 
-    constructor(dbService: DbServiceInterface, mailService: MailServiceInterface) {
-        this._dbService = dbService
+    constructor(employeesRepository: EmployeesRepository, mailService: MailServiceInterface) {
+        this._employeesRepository = employeesRepository
         this._mailService = mailService
     }
 
     sendGreetings(ourDate: OurDate) {
-        const employees = this._dbService.getAllEmployees();
+        const employees = this._employeesRepository.getAllEmployees();
 
         employees.forEach((employee) => {
             if (employee.isBirthday(ourDate)) {

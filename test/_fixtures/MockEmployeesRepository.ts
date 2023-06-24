@@ -1,7 +1,7 @@
 import { Employee } from '../../src/Entities/Employee'
-import { DbServiceInterface } from '../../src/_interfaces/DbServiceInterface'
+import { EmployeesRepository } from '../../src/_interfaces/EmployeesRepository'
 
-export class DbServiceMock implements DbServiceInterface {
+export class MockEmployeesRepository implements EmployeesRepository {
 
     getAllEmployees(): Employee[] {
         const employees = [

@@ -1,9 +1,9 @@
 import fs from 'fs'
 import path from 'path'
 import { Employee } from './Entities/Employee'
-import { DbServiceInterface } from './_interfaces/DbServiceInterface'
+import { EmployeesRepository } from './_interfaces/EmployeesRepository'
 
-export class DbService implements DbServiceInterface {
+export class FilesyncEmployeesRepository implements EmployeesRepository {
     private readonly _fileName: string
 
     constructor(fileName: string) {

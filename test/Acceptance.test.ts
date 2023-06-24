@@ -1,6 +1,6 @@
 import { OurDate } from '../src/Entities/OurDate'
 import { BirthdayService } from '../src/BirthdayService'
-import { DbService } from '../src/DbService'
+import { FilesyncEmployeesRepository } from '../src/FilesyncEmployeesRepository'
 import { MailService } from '../src/MailService'
 import { messagesSent, startMailhog, stopMailHog } from './mailhog'
 import flushPromises from 'flush-promises'
@@ -9,14 +9,14 @@ describe('Acceptance', () => {
     const fileName = 'employee_data.txt'
     const SMTP_PORT = 1025
     const SMTP_URL = '127.0.0.1'
-    const dbService = new DbService(fileName)
+    const employeesRepository = new FilesyncEmployeesRepository(fileName)
     const mailService = new MailService(SMTP_URL, SMTP_PORT, 'sender@here.com')
     let service: BirthdayService
 
     beforeEach(() => {
         startMailhog()
 
-        service = new BirthdayService(dbService, mailService)
+        service = new BirthdayService(employeesRepository, mailService)
     })
 
     afterEach(() => {
