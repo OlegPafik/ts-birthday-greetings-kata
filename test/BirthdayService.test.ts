@@ -19,11 +19,8 @@ describe('BirthdayService', () => {
         expect(mailService.timesCalled).toEqual(1)
     })
 
-    // it('will not send emails when nobodys birthday', async () => {
-    //     service.sendGreetings(new OurDate('2008/01/01'))
-    //     await flushPromises()
-
-    //     const messages = await messagesSent()
-    //     expect(messages.length).toEqual(0)
-    // })
+    it('will not send emails when nobodys birthday', async () => {
+        birthDayService.sendGreetings(new OurDate('2008/01/01'))
+        expect(mailService.timesCalled).toEqual(1)
+    })
 })
