@@ -2,20 +2,20 @@ import { OurDate } from './OurDate'
 
 export class Employee {
 
-    private readonly _firstName: string
+    readonly firstName: string
     private readonly _lastName: string
     private readonly _birthDate: OurDate
     private readonly _email: string
 
     constructor(firstName: string, lastName: string, birthDate: string, email: string) {
-        this._firstName = firstName
+        this.firstName = firstName
         this._lastName = lastName
         this._birthDate = new OurDate(birthDate)
         this._email = email
     }
 
     getFirstName(): string {
-        return this._firstName
+        return this.firstName
     }
 
     getLastName(): string {
@@ -41,7 +41,7 @@ export class Employee {
         if (this._email !== obj._email) {
             return false
         }
-        if (this._firstName !== obj._firstName) {
+        if (this.firstName !== obj.firstName) {
             return false
         }
         return this._lastName === obj._lastName

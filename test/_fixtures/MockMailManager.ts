@@ -13,7 +13,7 @@ export class MockMailManager implements MailManager {
             body: 'Happy Birthday, dear %NAME%!'.replace('%NAME%', employee.getFirstName()),
             recipient: employee.getEmail()
         }
-
+        this.employeesContacted.push(employee)
         return email
     }
 

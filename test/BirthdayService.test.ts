@@ -16,6 +16,7 @@ describe('BirthdayService', () => {
 
     it('base scenario', async () => {
         birthdayService.sendGreetings(new OurDate('2008/10/08'))
+        expect(mailManager.employeesContacted[0].firstName).toEqual('Jhon')
         expect(mailManager.deliveredMessages).toEqual(1)
     })
 
